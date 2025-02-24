@@ -9,7 +9,7 @@ data = pd.read_csv(
     parse_dates=True,
     dayfirst=True,
 )
-
+data
 # %%
 del data["RECORD"]
 # %%

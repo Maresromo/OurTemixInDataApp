@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from glob import glob
 # %%
-def proporcion_faltantes(f):
+def importar(f):
     data = pd.read_csv(
     f,
     skiprows=[0,2,3],
@@ -12,6 +12,9 @@ def proporcion_faltantes(f):
     dayfirst=True,
     )
     del data["RECORD"]
+    return data
+
+def proporcion_faltantes(data):    
     # Eliminar la primera fila si está completamente vacía
     if data.iloc[0].isna().all():
         data = data.iloc[1:]
@@ -32,6 +35,7 @@ def proporcion_faltantes(f):
 
     # Reindexar para llenar los huecos con NaN
     data = data.reindex(full_index)
+
     #Funcion para encontrar la proporcion de daltos faltantes
     total_filas = len(data)
     faltantes = data.isna().sum()  # Por columna
@@ -51,7 +55,8 @@ resultados = []
 
 # Bucle for para aplicar la función a cada archivo y guardar los resultados
 for path in paths:
-    resultado = proporcion_faltantes(path)  # Llama a la función
+    data=importar(path)
+    resultado = proporcion_faltantes(data)  # Llama a la función
     resultados.append(resultado)  # Guarda el resultado en la lista
 
 # %%

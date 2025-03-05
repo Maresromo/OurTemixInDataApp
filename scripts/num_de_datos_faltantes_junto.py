@@ -96,3 +96,7 @@ for i in range(len(paths)):
 # imputar, especialmente si los datos faltantes no 
 # son aleatorios.
 # %%
+data = importar(paths[0])
+# %%
+type(data)
+# %%

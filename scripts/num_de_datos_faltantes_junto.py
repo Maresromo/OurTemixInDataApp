@@ -48,8 +48,6 @@ paths = glob("../data/001_raw/RUOA/Datos_hora/*")
 #Se eliminan las rutas de los ultimos 3 archivos ya que tienen un 
 #error con el encoding y eso es otro ejercicio
 paths = paths[:-3]
-paths
-
 # %%
 resultados = []
 

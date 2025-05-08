@@ -4,9 +4,9 @@ import duckdb
 con = duckdb.connect("esolmetruoa.db")
 
 con.execute('''
-CREATE TABLE IF NOT EXISTS sensores (
-            id_sensor INTEGER PRIMARY KEY,      --ID de la estación
-            descripcion VARCHAR,                --Describe qué tipo de sensor es
+CREATE TABLE IF NOT EXISTS estaciones (
+            id_estacion INTEGER PRIMARY KEY,      --ID de la estación
+            nombre VARCHAR,                --Nombre de la estacion
             );
 ''')
 
